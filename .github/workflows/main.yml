@@ -1,16 +1,25 @@
 name: Deploy
+
 on:
   workflow_dispatch:
   push:
     branches:
-      - master # default branch
+      - master
+
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
+
     steps:
-      - uses: actions/checkout@v2
-      - run: yarn
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: yarn install
       - run: yarn build
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
