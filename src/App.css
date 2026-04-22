@@ -41,7 +41,8 @@ table tr th,
 table tr td {
   text-align: center;
   vertical-align: middle;
-  color:#fff;
+  background-color: transparent !important;
+  color:#fff !important;
 }
 table tr td:nth-child(1) {
   width: 70%
